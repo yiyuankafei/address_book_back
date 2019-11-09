@@ -1,0 +1,28 @@
+spring:
+    profiles:
+        active: dev
+    applicaiton:
+        name: address_book
+    http:
+        multipart:
+            maxFileSize: 50Mb
+            maxRequestSize: 50Mb
+
+server:
+    port: 8088
+    tomcat:
+        basedir: tomcat
+        accesslog:
+            enabled: true
+            directory: logs
+            pattern: "%{X-Forwarded-For}i %{userToken}i - %h %l %u %t \"%r\" %s %b %D %F %T"
+            rotate: true
+            buffered: true
+            rename-on-rotate: true
+            prefix: localhost_access_log
+            suffix: .txt
+
+mybatis:
+    typeAliasesPackage: application.entity
+    mapper-locations: classpath:application/mapper/*Mapper.xml
+

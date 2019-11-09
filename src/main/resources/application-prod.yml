@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    min-idle: 3
+    max-active: 20
+    time-between-eviction-runs-millis: 60000
+    test-while-idle: true
+    poolPreparedStatements: true
+    type: com.alibaba.druid.pool.DruidDataSource
+    max-wait: 60000
+    url: jdbc:mysql://127.0.0.1:3306/address_book?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false
+    test-on-borrow: false
+    password: root
+    min-evictable-idle-time-millis: 300000
+    initial-size: 1
+    driver-class-name: com.mysql.jdbc.Driver
+    test-on-return: false
+    username: root
+
+mybatis:
+  mapper-locations: classpath:application/mapper/*.xml,classpath:application/mapper/custom/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

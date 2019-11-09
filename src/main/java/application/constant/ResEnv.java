@@ -1,11 +1,11 @@
-package application.entity.base;
+package application.constant;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 
- * 后台响应包装�?
+ * 后台响应包装�?
  */
 public class ResEnv<T> {
 	

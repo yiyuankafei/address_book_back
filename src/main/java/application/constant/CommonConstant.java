@@ -1,7 +1,7 @@
-package application.entity.base;
+package application.constant;
 
 /**
- *全局常量�?
+ *全局常量�?
  */
 public class CommonConstant {
 
@@ -18,47 +18,57 @@ public class CommonConstant {
     
     
     /**
-     * 返回代码：成�?
+     * 返回代码：成功
      */
     public static final int RES_CODE_OK = 200;
     
     /**
-     * 返回代码：失�?
+     * 返回代码：失敗
      */
     public static final int RES_CODE_ERROR = 500;
     
     /**
      * 返回代码：token过期
      */
-    public static final int RES_CODE_TOKEN = 600;
+    public static final int RES_CODE_TOKEN_EXPIRE = 600;
+    
+    /**
+     * 返回代码：token不存在
+     */
+    public static final int RES_CODE_TOKEN_NOT_EXISTS = 601;
+    
+    /**
+     * 返回代码：認證失敗
+     */
+    public static final int RES_CODE_TOKEN_AUTH_FAIL = 602;
     
     /**
      * 返回代码：用户名重复
      */
-    public static final int RES_CODE_EXISTS_USERNAME = 601;
+    public static final int RES_CODE_EXISTS_USERNAME = 701;
     
     /**
      * 返回代码：手机号重复
      */
-    public static final int RES_CODE_EXISTS_PHONE = 602;
+    public static final int RES_CODE_EXISTS_PHONE = 702;
     
     /**
      * 返回代码：用户信息不存在
      */
-    public static final int RES_CODE_USERINFO = 603;
+    public static final int RES_CODE_USERINFO = 703;
     
     /**
-     * 返回代码：密码错�?
+     * 返回代码：密码錯誤
      */
-    public static final int RES_CODE_PASSWORD_MISTAKE = 604;
+    public static final int RES_CODE_PASSWORD_MISTAKE = 704;
     
     /**
-     * 返回代码：账号冻�?
+     * 返回代码：账号凍結
      */
-    public static final int RES_CODE_USER_FREEZE = 605;
+    public static final int RES_CODE_USER_FREEZE = 705;
     
     /**
-	 * 分隔�?
+	 * 分隔符
 	 */
 	public static final String FILE_SEPARATOR = "/";
 	
@@ -92,6 +102,15 @@ public class CommonConstant {
 	 * 当前用户
 	 */
 	public static final String LOGIN_USER = "loginUser";
+	
+	/**
+	 * JWT密鑰
+	 */
+	public static final String JWT_SECRET = "abcdefg01234567890";
+	/**
+	 * JWT  token
+	 */
+	public static final Integer JWT_TTL = 60 * 60 * 1000; 
 	
 	/**
 	 * 是否删除  true-删除

@@ -39,7 +39,7 @@ public class WebMVCConfig implements WebMvcConfigurer {
 	}*/
 	
 	@Override
-	public void addInterceptors(InterceptorRegistry registry){
+	public void addInterceptors(InterceptorRegistry registry) {
     	String[] whiteUrls = new String[]{"/user/login", "/*.html", "/image"}; 
         registry.addInterceptor(interceptor)
         		.addPathPatterns("/**")

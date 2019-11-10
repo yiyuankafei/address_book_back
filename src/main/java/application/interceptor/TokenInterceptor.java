@@ -6,6 +6,8 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -22,26 +24,31 @@ import com.alibaba.fastjson.JSON;
 
 
 @Component
+@Slf4j
 public class TokenInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
     	String uri = request.getRequestURI();
-    	System.out.println("请求路径：" + uri);
+    	log.info("请求路径：{}", uri);
     	String token = request.getHeader("token");
     	if (StringUtils.isEmpty(token)) {
     		print(response, ResEnv.fail(CommonConstant.RES_CODE_TOKEN_NOT_EXISTS, "token不存在"));
+    		log.info("token不存在");
     		return false;
     	} else {
     		CheckResult result = JwtUtils.validateJWT(token);
     		if (result.isSuccess()) {
+    			log.info("token认证通过：{}", result.getClaims().getSubject());
     			return true;
     		} else {
     			if (result.getErrCode() == CommonConstant.RES_CODE_TOKEN_EXPIRE) {
     				print(response, ResEnv.fail(CommonConstant.RES_CODE_TOKEN_EXPIRE, "token过期"));
+    				log.info("token过期");
     				return false;
     			} else {
     				print(response, ResEnv.fail(CommonConstant.RES_CODE_TOKEN_AUTH_FAIL, "token认证不通过"));
+    				log.info("token认证不通过");
     				return false;
     			}
     		}

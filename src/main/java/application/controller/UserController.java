@@ -1,6 +1,12 @@
 package application.controller;
 
+import io.jsonwebtoken.Claims;
+
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +21,7 @@ import application.service.UserService;
 import application.util.JwtUtils;
 
 @RestController
+@Slf4j
 public class UserController {
 	
 	@Autowired
@@ -57,7 +64,17 @@ public class UserController {
 		} else {
 			return ResEnv.fail("用户名/密码错误");
 		}
+	}
+	
+	@RequestMapping("/user/refreshToken")
+	public ResEnv<String> resreshToken(HttpServletRequest request) {
 		
+		String token = request.getHeader("token");
+		Claims claims = JwtUtils.validateJWT(token).getClaims();
+		
+		String newToken = JwtUtils.createJWT(String.valueOf(claims.getId()), claims.getSubject(), CommonConstant.JWT_TTL);
+		log.info("更新token，旧token：{},新token：{}", token, newToken);
+		return ResEnv.success(newToken);
 	}
 
 }

@@ -50,7 +50,7 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table schema="address_book" tableName="user" domainObjectName="User">
+        <table schema="address_book" tableName="contact" domainObjectName="Contact">
             <generatedKey column="id" sqlStatement="MySql" identity="true" />
         </table>
         

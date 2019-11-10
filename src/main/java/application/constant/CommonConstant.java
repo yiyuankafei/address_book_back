@@ -1,7 +1,7 @@
 package application.constant;
 
 /**
- *全局常量�?
+ *全局常量
  */
 public class CommonConstant {
 
@@ -38,7 +38,7 @@ public class CommonConstant {
     public static final int RES_CODE_TOKEN_NOT_EXISTS = 601;
     
     /**
-     * 返回代码：認證失敗
+     * 返回代码：认证失败
      */
     public static final int RES_CODE_TOKEN_AUTH_FAIL = 602;
     
@@ -58,12 +58,12 @@ public class CommonConstant {
     public static final int RES_CODE_USERINFO = 703;
     
     /**
-     * 返回代码：密码錯誤
+     * 返回代码：密码错误
      */
     public static final int RES_CODE_PASSWORD_MISTAKE = 704;
     
     /**
-     * 返回代码：账号凍結
+     * 返回代码：账号冻结
      */
     public static final int RES_CODE_USER_FREEZE = 705;
     
@@ -104,7 +104,7 @@ public class CommonConstant {
 	public static final String LOGIN_USER = "loginUser";
 	
 	/**
-	 * JWT密鑰
+	 * JWT密钥
 	 */
 	public static final String JWT_SECRET = "abcdefg01234567890";
 	/**

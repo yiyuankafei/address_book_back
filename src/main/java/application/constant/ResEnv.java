@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * 
- * 后台响应包装�?
+ * 后台响应包装类
  */
 public class ResEnv<T> {
 	

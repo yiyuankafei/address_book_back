@@ -15,6 +15,6 @@ public class Application extends SpringBootServletInitializer implements Command
     }
 
 	public void run(String... arg0) throws Exception {
-		System.out.println("系統啟動成功！");
+		System.out.println("系统启动成功！");
 	}
 }

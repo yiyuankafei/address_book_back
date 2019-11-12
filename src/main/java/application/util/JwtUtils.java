@@ -98,6 +98,12 @@ public class JwtUtils {
                 .parseClaimsJws(jwt)
                 .getBody();
     }
+    
+    public static Integer getUserId(String jwt) {
+		CheckResult checkResult = JwtUtils.validateJWT(jwt);
+		Integer userId = Integer.parseInt(checkResult.getClaims().getId());
+		return userId;
+    }
 
     public static void main(String[] args) throws InterruptedException {
          // 后端生成token

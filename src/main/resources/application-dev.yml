@@ -22,7 +22,7 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     
 oss:
-  accessKeyId: LTAIXVFZBZEYUAz4
+  accessKeyId: 
   endPoint: http://oss-cn-hangzhou.aliyuncs.com
   bucketName: byf-bucket
-  accessKeySecret: xdFQfRMpcnkN2A0DZ8IM41AAyjdpQC
+  accessKeySecret: 
